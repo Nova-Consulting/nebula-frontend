@@ -139,12 +139,12 @@
 				},
 				"loginTarget": {
 					"path": "br.com.novaconsulting.admin.view",
-					"name": "login",
+					"name": "Login",
 					"level": 1
 				},
 				"recoverTarget": {
 					"path": "br.com.novaconsulting.admin.view",
-					"name": "recover",
+					"name": "Recover",
 					"level": 1
 				},
 				"notFound": {
