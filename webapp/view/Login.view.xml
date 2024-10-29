@@ -11,12 +11,13 @@
 				<f:content>
 					<VBox
 						width="100%"
+						id="vbox1"
 						class="sapUiSmallMargin "
 						justifyContent="SpaceBetween">
-						<VBox class="sapUiMediumMarginBottom " alignItems="Center">
+						<VBox class="sapUiMediumMarginBottom " id="vbox2" alignItems="Center">
 							<Image src="images/sap-logo.svg" mode="InlineSvg" />
 						</VBox>
-						<VBox class="sapUiSmallMarginBottom ">
+						<VBox class="sapUiSmallMarginBottom " id="vbox3">
 							<Label text="Nome de Usuário:" class="labelLogin" id="labelUsername" labelFor="inputUsername" />
 							<Input 
 								id="inputUsername" 
@@ -24,7 +25,7 @@
 								placeholder="Insira seu e-mail" 
 								class="sapUiSmallMarginBottom" />
 						</VBox>
-						<VBox class="sapUiSmallMarginBottom">
+						<VBox class="sapUiSmallMarginBottom" id="vbox5">
 							<Label text="Senha:" class="labelLogin" id="labelPassword" labelFor="inputPassword" />
 							<Input 
 								type="Password"
@@ -35,7 +36,7 @@
 							<CheckBox text="Mantenha-me Conectado" />
 							<Link text="Esqueci Minha Senha" class="linkPassword" press="onForgotPasswordPress"/>
 						</VBox>
-						<VBox class="sapUiSmallMarginBottom w100" alignItems="Center">
+						<VBox class="sapUiSmallMarginBottom w100" alignItems="Center" id="vbox4">
 							<Button class="w100" id="loginButton" text="Entrar" type="Emphasized" press="onPress" ariaLabelledBy="editButtonLabel"/>
 						</VBox>
 					</VBox>
@@ -43,11 +44,11 @@
 			</f:Card>
 		</FlexBox>
 		 <Toolbar class="customFooterToolbar">
-            <HBox alignItems="Center" justifyContent="Center">
+            <HBox alignItems="Center" justifyContent="Center" id="hbox1">
                 <Text text="Desenvolvido por:" />
                 <Link text="Nova Consulting" href="https://www.sap.com" target="_blank" />
             </HBox>
-            <HBox alignItems="Center" justifyContent="Center">
+            <HBox alignItems="Center" justifyContent="Center" id="hbox2">
                 <Link text="Politicas de Privacidade" href="#" />
                 <Text text=" | " />
                 <Link text="Legal" href="#" />
