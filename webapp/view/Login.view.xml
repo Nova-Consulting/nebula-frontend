@@ -1,0 +1,61 @@
+<mvc:View
+	controllerName="br.com.novaconsulting.admin.controller.Login"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards"
+	xmlns:core="sap.ui.core">
+	<Page showHeader="false">
+		<FlexBox class="h90" alignItems="Start" justifyContent="Center">
+			<f:Card class="sapUiMediumMargin mt100 mb10" width="350px" >
+				<f:content>
+					<VBox
+						width="100%"
+						class="sapUiSmallMargin "
+						justifyContent="SpaceBetween">
+						<VBox class="sapUiMediumMarginBottom " alignItems="Center">
+							<Image src="images/sap-logo.svg" mode="InlineSvg" />
+						</VBox>
+						<VBox class="sapUiSmallMarginBottom ">
+							<Label text="Nome de Usuário:" class="labelLogin" id="labelUsername" labelFor="inputUsername" />
+							<Input 
+								id="inputUsername" 
+								valueStateText="Nome de usuário inválido."
+								placeholder="Insira seu e-mail" 
+								class="sapUiSmallMarginBottom" />
+						</VBox>
+						<VBox class="sapUiSmallMarginBottom">
+							<Label text="Senha:" class="labelLogin" id="labelPassword" labelFor="inputPassword" />
+							<Input 
+								type="Password"
+								id="inputPassword" 
+								valueStateText="Nome de usuário inválido."
+								placeholder="Insira sua senha" 
+								class="sapUiSmallMarginBottom" />
+							<CheckBox text="Mantenha-me Conectado" />
+							<Link text="Esqueci Minha Senha" class="linkPassword" press="onForgotPasswordPress"/>
+						</VBox>
+						<VBox class="sapUiSmallMarginBottom w100" alignItems="Center">
+							<Button class="w100" id="loginButton" text="Entrar" type="Emphasized" press="onPress" ariaLabelledBy="editButtonLabel"/>
+						</VBox>
+					</VBox>
+				</f:content>
+			</f:Card>
+		</FlexBox>
+		 <Toolbar class="customFooterToolbar">
+            <HBox alignItems="Center" justifyContent="Center">
+                <Text text="Desenvolvido por:" />
+                <Link text="Nova Consulting" href="https://www.sap.com" target="_blank" />
+            </HBox>
+            <HBox alignItems="Center" justifyContent="Center">
+                <Link text="Politicas de Privacidade" href="#" />
+                <Text text=" | " />
+                <Link text="Legal" href="#" />
+                <Text text=" | " />
+                <Link text="Cookies" href="#" />
+            </HBox>
+        </Toolbar>
+	</Page>
+
+</mvc:View>
+

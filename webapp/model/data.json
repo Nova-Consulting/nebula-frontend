@@ -1,0 +1,25 @@
+{
+	"selectedKey": "page1",
+	"navigation": [
+		{
+			"title": "Home",
+			"key": "page1"
+		},
+		{
+			"title": "Busines Partner",
+			"key": "page2"
+		},
+		{
+			"title": "Material Management",
+			"key": "page2"
+		},
+        {
+			"title": "Workflow Management",
+			"key": "page2"
+		},
+        {
+			"title": "Reports",
+			"key": "page2"
+		}
+	]
+}

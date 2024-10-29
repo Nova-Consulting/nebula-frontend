@@ -1,0 +1,17 @@
+<SideNavigation xmlns="sap.tnt" xmlns:core="sap.ui.core" expanded="true" selectedKey="{
+          path: 'ui>/selectedRoute'
+        }" itemSelect="onSegmentedButtonSelectionChange">
+	<NavigationList items="{path: '/navigation'}">
+		<core:Fragment
+				fragmentName="br.com.novaconsulting.balanca.components.menu.NavigationList"
+				type="XML" />
+	</NavigationList>
+	<fixedItem>
+		<NavigationList items="{path: '/fixedNavigation'}">
+			<core:Fragment
+					fragmentName="br.com.novaconsulting.balanca.components.menu.NavigationList"
+					type="XML" />
+				
+		</NavigationList>
+	</fixedItem>
+</SideNavigation>

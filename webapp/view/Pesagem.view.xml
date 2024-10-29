@@ -1,0 +1,13 @@
+<mvc:View
+	controllerName="br.com.novaconsulting.admin.controller.Pesagem"
+	xmlns="sap.m"
+	xmlns:tnt="sap.tnt"
+	xmlns:layout="sap.ui.layout"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page  title="inicio">
+		<Text text="Pesagem"/>
+	</Page>
+
+</mvc:View>
