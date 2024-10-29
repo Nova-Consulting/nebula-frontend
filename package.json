@@ -5,6 +5,7 @@
 	"author": "rpinheiro",
 	"license": "Apache-2.0",
 	"scripts": {
+		"start:srv": "ui5 serve --open dist/index.html --port 8080",
 		"clean": "rimraf dist coverage",
 		"build": "ui5 build --clean-dest",
 		"build:opt": "ui5 build self-contained --clean-dest --all",
@@ -23,6 +24,7 @@
 		"@ui5/middleware-code-coverage": "^1.1.0",
 		"axios": "^1.7.7",
 		"eslint": "^8.50.0",
+		"express": "^4.21.1",
 		"karma": "^6.4.2",
 		"karma-chrome-launcher": "^3.2.0",
 		"karma-coverage": "^2.2.1",

@@ -1,17 +1,22 @@
-# Usar a imagem do NGINX
-FROM nginx:alpine
+# Usar a imagem oficial do Node.js
+FROM node:18-alpine
 
 # Definir o diretório de trabalho
-WORKDIR /usr/share/nginx/html
+WORKDIR /usr/src/app
 
-# Remover arquivos padrão do NGINX
-RUN rm -rf ./*
+# Copiar os arquivos de dependências para dentro do container
+COPY package.json package-lock.json ./
 
-# Copiar os arquivos da aplicação Fiori (pasta dist) para o container
+# Instalar as dependências
+RUN npm install
+
+# Copiar o restante dos arquivos para o container
 COPY . .
 
-# Expor a porta 80
-EXPOSE 80
+RUN npm install --global @ui5/cli
 
-# Iniciar o servidor NGINX automaticamente
-CMD ["nginx", "-g", "daemon off;"]
+# Expor a porta 80
+EXPOSE 8080
+
+# Iniciar a aplicação com Node.js
+CMD ["node", "server.js"]
