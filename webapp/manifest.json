@@ -52,15 +52,15 @@
 		"dependencies": {
 			"minUI5Version": "1.122.1",
 			"libs": {
-				"sap.ui.core": {},
-				"sap.m": {},
-				"sap.tnt": {},
-				"sap.ui.webc.fiori": {},
-				"sap.f": {},
-				"sap.fiori": {},
-				"sap.ui.layout": {},
-				"sap.ui.unified": {},
-				"sap.suite.ui.microchart": {}
+				"sap.ui.core": { "lazy": false } ,
+				"sap.m": { "lazy": false },
+				"sap.tnt": {"lazy": false},
+				"sap.ui.webc.fiori": {"lazy": false},
+				"sap.f": {"lazy": false},
+				"sap.fiori": {"lazy": false},
+				"sap.ui.layout": {"lazy": false},
+				"sap.ui.unified": {"lazy": false},
+				"sap.suite.ui.microchart": {"lazy": false}
 			}
 		},
 
@@ -108,11 +108,6 @@
 					"target": "mainTarget"
 				},
 				{
-					"pattern": "master",
-					"name": "master",
-					"target": "masterTarget"
-				},
-				{
 					"name": "inicioRoute1",
 					"pattern": "inicio",
 					"target": "inicioTarget1"
@@ -133,15 +128,6 @@
 					"viewId": "main",
 					"viewName": "Main",
 					"level": 1
-				},
-				"masterTarget": {
-					"path": "br.com.novaconsulting.admin.view",
-					"name": "Master",
-					"parent": "mainTarget",
-					"controlId": "parentNavContainer",
-					"clearAggregation": true,
-					"transition": "slide",
-					"level": 3
 				},
 				"inicioTarget1": {
 					"path": "br.com.novaconsulting.admin.view",
