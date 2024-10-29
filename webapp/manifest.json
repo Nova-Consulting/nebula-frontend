@@ -13,7 +13,7 @@
 		
 		"dataSources": {
 			"mainService": {
-				"uri": "http://localhost:4004/odata/v4/admin/",
+				"uri": "http://20.64.235.73:4004/odata/v4/admin/",
 				"type": "OData",
 				"settings": {
 				"annotations": [],
