@@ -43,7 +43,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
 
             this._doLogin(email);
 		},
-
+   
 		onForgotPasswordPress: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
             oRouter.navTo("recoverRoute"); // Nome da rota definida no manifest.json
