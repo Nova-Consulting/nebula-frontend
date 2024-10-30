@@ -23,38 +23,25 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
 		},
 
 		onPress: function () {
-			var oInputUsername = this.byId("inputUsername");
-			var oInputPassword = this.byId("inputPassword");
+			var oInputUsername = this.byId("inputEmail");
 
-			var lblUsername = this.byId("labelUsername");
-			var lblPassword = this.byId("labelPassword");
+			var lblUsername = this.byId("labelEmail");
 			
-            var sUsername = oInputUsername.getValue();
-			var sPassword = oInputPassword.getValue();
+            var email = oInputUsername.getValue();
 
 			oInputUsername.removeStyleClass("inputError");
 			lblUsername.removeStyleClass("labelError");
 
-			oInputPassword.removeStyleClass("inputError");
-			lblPassword.removeStyleClass("labelError");
-
-            if (!this._isValidUsername(sUsername)) {
+            if (!this._isValidUsername(email)) {
 				oInputUsername.addStyleClass("inputError");
 				lblUsername.addStyleClass("labelError")
-                MessageBox.error("Por favor, preencha o campo de nome de usuário");
+                MessageBox.error("Por favor, preencha o campo de e-mail");
                 return;
             } else {
-                oInputUsername.setValueState('');
+                // oInputUsername.setValueState('');
             }
 
-            if (!this._isValidUsername(sPassword)) {
-				oInputPassword.addStyleClass("inputError");
-				lblPassword.addStyleClass("labelError")
-                MessageBox.error("Por favor, preencha o campo de senha.");
-                return;
-            }
-
-            this._doLogin(sUsername, sPassword);
+            this._doLogin(email);
 		},
 
 		onForgotPasswordPress: function () {
@@ -63,7 +50,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
         },
 
 		_isValidUsername: function (sUsername) {
-            var oRegex = /^[a-zA-Z0-9]{1,}$/;
+            var oRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             return oRegex.test(sUsername);
         },
 
@@ -78,40 +65,27 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
 
 		},
 		
-        _doLogin: function (username, password) {
+        _doLogin: function (email) {
 			// eslint-disable-next-line consistent-this
-			var lthis = this;
 
 			var oPayload = {
-				username: username,
-				password: password
+				email: email
 			};		
 
 			// eslint-disable-next-line no-unused-vars
 			var aData = jQuery.ajax({
 				type : "POST",
 				contentType : "application/json",
-				url : "http://20.64.235.73:4004/odata/v4/admin/login",
+				url : "http://20.64.235.73:4004/odata/v4/admin/recoverPassword",
 				dataType : "json",
 				data: JSON.stringify(oPayload),
 				async: true, 
 				success: function (data, textStatus, jqXHR) {
-					var sToken = data.value;
-
-					if (sToken) {
-						sessionStorage.setItem("authToken", sToken);
-						sap.m.MessageToast.show("Login realizado com sucesso, você será redirecionado em breve!");
-						// sap.ui.core.UIComponent.getRouterFor(this).navTo("Dashboard");
-						var oRouter = lthis.getOwnerComponent().getRouter();
-			
-						oRouter.navTo("main");
-					} else {
-						sap.m.MessageBox.error("Ocorreu um erro ao efetuar seu login. Tente novamente.");
-					}
+					sap.m.MessageToast.show("Um E-mail foi enviado com as instruções de recuperação de senha!");
 				},
 				error: function (jqXHR, textStatus, errorThrown) {
-					if ( jqXHR.status == 401 ) {
-						MessageBox.error("Usuário ou senha incorretos.");
+					if ( jqXHR.status == 404 ) {
+						MessageBox.error("Usuário não encontrado");
 					}
 				}
 			});
