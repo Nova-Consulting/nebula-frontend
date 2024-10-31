@@ -6,9 +6,10 @@ sap.ui.define(["./BaseController", 'sap/ui/model/json/JSONModel', "sap/ui/core/F
 		_logoutTimer: null,
 
 		_validateSession: function () {
-            var sToken = sessionStorage.getItem("authToken");
+            var sToken = sessionStorage.getItem("authToken")
+			var sTokenLocal = localStorage.getItem("authToken");
 
-            if (!sToken) {
+            if (!sToken && !sTokenLocal) {
 				var oRouter = this.getOwnerComponent().getRouter();
 				oRouter.navTo("loginRoute");
             }
@@ -66,6 +67,10 @@ sap.ui.define(["./BaseController", 'sap/ui/model/json/JSONModel', "sap/ui/core/F
             if (this._logoutTimer) {
                 clearTimeout(this._logoutTimer);
             }
+
+			if (localStorage.getItem("sKeepSigned") == true){
+				clearTimeout(this._logoutTimer);
+			}
 
             // Iniciar um novo timer de logout
             this._logoutTimer = setTimeout(this._onLogout.bind(this), this.TIMEOUT);

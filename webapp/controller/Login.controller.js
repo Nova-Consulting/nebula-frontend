@@ -25,12 +25,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
 
 			var oInputUsername = this.byId("inputUsername");
 			var oInputPassword = this.byId("inputPassword");
+			var oInputKeepSigned = this.byId("manterConectado");
 
 			var lblUsername = this.byId("labelUsername");
 			var lblPassword = this.byId("labelPassword");
 			
             var sUsername = oInputUsername.getValue();
 			var sPassword = oInputPassword.getValue();
+			var sKeepSigned = oInputKeepSigned.getSelected();
 
 			oInputUsername.removeStyleClass("inputError");
 			lblUsername.removeStyleClass("labelError");
@@ -56,7 +58,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
                 return;
             }
 
-            this._doLogin(sUsername, sPassword);
+            this._doLogin(sUsername, sPassword, sKeepSigned);
 		},
 
 		onForgotPasswordPress: function () {
@@ -80,7 +82,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
 
 		},
 		
-        _doLogin: function (username, password) {
+        _doLogin: function (username, password, sKeepSigned) {
 			// eslint-disable-next-line consistent-this
 			var lthis = this;
 
@@ -102,6 +104,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
 
 					if (sToken) {
 						sessionStorage.setItem("authToken", sToken);
+						localStorage.setItem("authToken", sToken);
+
+						if (sKeepSigned)
+							localStorage.setItem("sKeepSigned", 'true');
+
 						sap.m.MessageToast.show("Login realizado com sucesso, você será redirecionado em breve!");
 						// sap.ui.core.UIComponent.getRouterFor(this).navTo("Dashboard");
 						var oRouter = lthis.getOwnerComponent().getRouter();
