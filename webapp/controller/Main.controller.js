@@ -82,6 +82,7 @@ sap.ui.define(["./BaseController", 'sap/ui/model/json/JSONModel', "sap/ui/core/F
 
             // Redirecionar para a página de login
             var oRouter = this.getOwnerComponent().getRouter();
+			window.location.replace('/');
 			oRouter.navTo("loginRoute");
 
             // Opcional: Limpar dados de sessão (localStorage, etc.)
@@ -135,6 +136,7 @@ sap.ui.define(["./BaseController", 'sap/ui/model/json/JSONModel', "sap/ui/core/F
 		onExit: function() { // Don't forget to deregister the delegate on exit.
 			this.getView().removeEventDelegate(this._navContainerDelegate);
 			this._navContainerDelegate = null;
+			
 		},
 	});
 });

@@ -49,7 +49,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
             } else {
                 // oInputUsername.setValueState('');
             }
-
+ 
             if (!this._isValidUsername(sPassword)) {
 				oInputPassword.addStyleClass("inputError");
 				lblPassword.addStyleClass("labelError")
@@ -63,11 +63,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
 
 		onForgotPasswordPress: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
-            oRouter.navTo("recoverRoute"); // Nome da rota definida no manifest.json
+            oRouter.navTo("recoverRoute");
         },
 
 		_isValidUsername: function (sUsername) {
-            
+
             return sUsername.length > 0;
         },
 
@@ -79,7 +79,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
 		onExit: function() { 
 			this.getView().removeEventDelegate(this._navContainerDelegate);
 			this._navContainerDelegate = null;
-
 		},
 		
         _doLogin: function (username, password, sKeepSigned) {
@@ -115,11 +114,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
 			
 						oRouter.navTo("main");
 					} else {
+						oLoginButton.setEnabled(true);
 						sap.m.MessageBox.error("Ocorreu um erro ao efetuar seu login. Tente novamente.");
 					}
 				},
 				error: function (jqXHR, textStatus, errorThrown) {
 					if ( jqXHR.status == 401 ) {
+						oLoginButton.setEnabled(true);
 						MessageBox.error("Usuário ou senha incorretos.");
 					}
 				}
