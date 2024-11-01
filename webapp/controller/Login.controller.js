@@ -66,9 +66,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
             oRouter.navTo("recoverRoute"); // Nome da rota definida no manifest.json
         },
 
-		_isValidUsername: function (sUsername) {
-            var oRegex = /^[a-zA-Z0-9]{1,}$/;
-            return oRegex.test(sUsername);
+		_isValidUsername: function () {
+            
+            return sUsername.length > 0;
         },
 
 		_isValidPassword: function (sPassword) {
