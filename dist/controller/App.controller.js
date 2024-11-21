@@ -1,0 +1,2 @@
+sap.ui.define(["./BaseController","sap/ui/model/json/JSONModel"],function(e,t){"use strict";return e.extend("nebula.controller.App",{onInit:function(){this._navContainerDelegate={onBeforeShow:this.onBeforeShow,onAfterShow:this.onAfterShow,onAfterHide:this.onAfterHide};this.getView().addEventDelegate(this._navContainerDelegate,this);var e=new t({busy:true,delay:0});this.getOwnerComponent().setModel(e,"appView")}})});
+//# sourceMappingURL=App.controller.js.map

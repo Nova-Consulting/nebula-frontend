@@ -1,0 +1,132 @@
+/* Enter your custom styles here */
+ .sapMBusyIndicator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    z-index: 2;
+ }
+
+ .mt20 {
+   margin-top: 20px !important;
+}
+
+.mt50 {
+   margin-top: 50px !important;
+}
+
+ .mt100 {
+   margin-top: 150px !important;
+}
+
+.mt150 {
+   margin-top: 150px !important;
+}
+
+.mb10 {
+   margin-bottom: 10px !important;
+}
+
+.h90 {
+   height: 90%;
+}
+
+.w100 {
+   width: 100% !important;
+}
+
+.maxWidth100{
+   max-width: 100px;
+}
+
+.linkPassword{
+   text-align: right;
+   font-size: 0.8rem;
+}
+
+.passwordLinkContainer {
+   width: 350px;
+   margin: 0 auto; /* Centraliza horizontalmente o container */
+   text-align: left;
+   margin-top: 10px;
+}
+
+.linkPassword {
+   font-size: 0.8rem;
+   color: #0070f2; /* Ajuste de cor opcional */
+}
+
+.customFooterToolbar {
+   background-color: #f4f4f4;
+   padding: 10px;
+   border-radius: 20px;
+   margin-top: 20px;
+   justify-content: space-between
+}
+
+.customFooterToolbar .sapMHBox {
+   display: flex;
+   gap: 5px;
+   justify-content: center;
+   align-items: center;
+   margin-top: 5px;
+}
+
+.customFooterToolbar a {
+   text-decoration: none;
+   color: #0070f2; /* Azul SAP */
+}
+
+.customFooterToolbar a:hover {
+   text-decoration: underline;
+}
+
+.text-center{
+   text-align: center !important;
+   justify-content: center !important;
+   display: flex !important;
+   justify-content: center !important; /* Alinha horizontalmente no centro */
+   align-items: center !important; /* Alinha verticalmente no centro */
+   text-align: center !important; /* Centraliza o texto */
+}
+
+
+.sapFCardHeaderTextFirstLine {
+   justify-content: center !important;
+}
+
+.inputError {
+   border: 2px solid red !important; /* Borda vermelha */
+   border-radius: 4px; /* Bordas arredondadas */
+}
+
+.labelLogin{
+   font-size: 0.8rem;
+}
+
+.labelError{
+   color: red
+}
+
+.titleDetail{
+   font-size: 1.6rem;
+   font-weight: bold;
+}
+
+.ClientDetailFragment{
+   margin-bottom: 40px !important;
+}
+
+.textSpanDetail{
+   color: black;
+   font-weight: 600;
+}
+
+.textSpanDetailGreen{
+   color: green;
+   font-weight: 600;
+}
+
+.ml-10{
+   margin-left: 10px;
+}

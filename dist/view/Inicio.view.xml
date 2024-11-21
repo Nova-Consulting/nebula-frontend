@@ -1,0 +1,138 @@
+<mvc:View
+	controllerName="nebula.controller.Inicio"
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns:m="sap.m"
+    xmlns:f="sap.f"
+		xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:core="sap.ui.core" 
+    xmlns:chart="sap.suite.ui.microchart" 
+    xmlns:layout="sap.ui.layout">
+	<m:Page showHeader="true" >
+		<layout:Grid defaultSpan="XL3 L3 M6 S12" class="mt20" id="gridHome">
+
+			<m:Panel headerText="Parceiros de negócio x Classificação">
+				<chart:InteractiveBarChart>
+					<chart:bars>
+						<chart:InteractiveBarChartBar label="Cooperados" value="941.8"/>
+						<chart:InteractiveBarChartBar label="Propriedades" value="847.6"/>
+						<chart:InteractiveBarChartBar label="Clientes" value="754.6"/>
+					</chart:bars>
+				</chart:InteractiveBarChart>
+			</m:Panel>
+
+			<!-- Lead Time -->
+			<m:Panel headerText="Lead Time">
+				<chart:InteractiveLineChart selectionChanged="selectionChanged" press="press" succeedingPoint="-50">
+					<chart:points>
+						<chart:InteractiveLineChartPoint value="52.1" label="May"/>
+						<chart:InteractiveLineChartPoint value="72" label="June"/>
+						<chart:InteractiveLineChartPoint value="-51.4" label="July"/>
+						<chart:InteractiveLineChartPoint value="19.9" label="Aug"/>
+						<chart:InteractiveLineChartPoint value="-61.9" label="Sep"/>
+						<chart:InteractiveLineChartPoint value="5" label="Oct"/>
+					</chart:points>
+				</chart:InteractiveLineChart>
+
+			</m:Panel>
+
+			<!-- Materiais por Categoria -->
+			<m:Panel headerText="Materiais por categoria">
+				<chart:InteractiveDonutChart>
+					<chart:segments>
+						<chart:InteractiveDonutChartSegment label="HAWA" value="55.0"/>
+						<chart:InteractiveDonutChartSegment label="FERT" value="30.5"/>
+						<chart:InteractiveDonutChartSegment label="Outros" value="30.5"/>
+					</chart:segments>
+				</chart:InteractiveDonutChart>
+			</m:Panel>
+
+			<!-- Solicitações por Usuário -->
+			<m:Panel headerText="Solicitações por usuário">
+				<chart:InteractiveBarChart>
+					<chart:bars>
+						<chart:InteractiveBarChartBar label="Fulano" value="532"/>
+						<chart:InteractiveBarChartBar label="Ciclano" value="168"/>
+						<chart:InteractiveBarChartBar label="Beltrano" value="132"/>
+					</chart:bars>
+				</chart:InteractiveBarChart>
+			</m:Panel>
+		</layout:Grid>
+
+		<m:FlexBox
+				alignItems="End"
+				justifyContent="Start">
+			
+		<m:GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Business Partner" press="press">
+			<m:TileContent>
+				<m:NumericContent value="125" icon="sap-icon://crm-service-manager" withMargin="false" />
+			</m:TileContent>
+		</m:GenericTile>
+
+		<m:GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Material Management" press="press">
+			<m:TileContent>
+				<m:NumericContent value="2" icon="sap-icon://bar-chart" withMargin="false" />
+			</m:TileContent>
+		</m:GenericTile>
+
+		<m:GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Workflow Management" press="press">
+			<m:TileContent>
+
+				<m:Text text="Concluídos" />
+				<m:ProgressIndicator percentValue="70" displayValue="70%" state="Success" width="100%" />
+				
+			</m:TileContent>
+		</m:GenericTile>
+
+		<m:GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Processamento de Dados"
+			subheader="Business Partner" press="press" frameType= "TwoByOne">
+			<m:TileContent unit="QTD Month to Date">
+				<m:NumericContent value="5.0"  icon="sap-icon://bar-chart" withMargin="false" />
+			</m:TileContent>
+			<m:tileContent>
+			<m:TileContent footer="Actual/Month">
+				<m:content>
+					<chart:ColumnMicroChart size="Responsive">
+						<chart:columns>
+							<chart:ColumnMicroChartData value="60" />
+							<chart:ColumnMicroChartData value="100" />
+							<chart:ColumnMicroChartData value="0" />
+							<chart:ColumnMicroChartData value="60" />
+							<chart:ColumnMicroChartData value="55"  />
+							<chart:ColumnMicroChartData value="15"  />
+						</chart:columns>
+					</chart:ColumnMicroChart>
+				</m:content>
+			</m:TileContent>
+		</m:tileContent>
+		</m:GenericTile>
+
+		<m:GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Processamento de Dados"
+			subheader="Material Management" press="press" frameType= "TwoByOne">
+			<m:TileContent unit="QTD Month to Date">
+				<m:NumericContent value="5.0"  icon="sap-icon://bar-chart" withMargin="false" />
+			</m:TileContent>
+			<m:tileContent>
+			<m:TileContent footer="Actual/Month">
+				<m:content>
+					<chart:ColumnMicroChart size="Responsive">
+						<chart:columns>
+							<chart:ColumnMicroChartData value="10" />
+							<chart:ColumnMicroChartData value="30" />
+							<chart:ColumnMicroChartData value="40" />
+							<chart:ColumnMicroChartData value="20" />
+							<chart:ColumnMicroChartData value="55"  />
+							<chart:ColumnMicroChartData value="15"  />
+						</chart:columns>
+					</chart:ColumnMicroChart>
+				</m:content>
+			</m:TileContent>
+		</m:tileContent>
+		</m:GenericTile>
+	</m:FlexBox>
+
+
+
+	</m:Page>
+</mvc:View>
+

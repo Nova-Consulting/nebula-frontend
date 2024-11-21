@@ -1,0 +1,200 @@
+<core:FragmentDefinition
+xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+   
+	<VBox class="sapUiSmallMargin">
+		<f:Form
+			editable="true">
+			<f:title>
+				<core:Title text="Material" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer title="Detalhes do Material">
+					<f:formElements>
+						<f:FormElement label="Código do Nébula">
+							<f:fields>
+								<Input value="{modelData>/ID}" editable="false"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Descrição Curta">
+							<f:fields>
+								<Input value="{modelData>/descricao}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Descrição Longa">
+							<f:fields>
+								<Input value="{modelData>/descricaoLong}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Tipo de Material">
+							<f:fields>
+								<Input value="{modelData>/tipoMaterial}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Grupo">
+							<f:fields>
+								<Input value="{modelData>/grupo}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="SubGrupo">
+							<f:fields>
+								<Input value="{modelData>/SubGrupo}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Hierarquia">
+							<f:fields>
+								<Input value="{modelData>/hierarquia}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Unidade de Medida">
+							<f:fields>
+								<Input value="{modelData>/unidadeMedida}" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="Outros Detalhes">
+					<f:formElements>
+						<f:FormElement label="Subfamilia">
+							<f:fields>
+								<Input value="{modelData>/subFamilia}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Fabricante">
+							<f:fields>
+								<Input value="{modelData>/fabricante}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Peso Bruto">
+							<f:fields>
+								<Input value="{modelData>/pesoBruto}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Peso Liquido">
+							<f:fields>
+								<Input value="{modelData>/pesoLiquido}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Código Mapa">
+							<f:fields>
+								<Input value="{modelData>/codMapa}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Código Mapa">
+							<f:fields>
+								<Input value="{modelData>/codMapa}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Código EAN">
+							<f:fields>
+								<Input value="{modelData>/categoriaEan}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Código Legado">
+							<f:fields>
+								<Input value="{modelData>/codigoLegado}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Setor de Atividade">
+							<f:fields>
+								<Input value="{modelData>/setorAtividade}" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form
+			editable="true">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer title="Dados Fiscais">
+					<f:formElements>
+						<f:FormElement label="País Origem">
+							<f:fields>
+								<Input value="{modelData>/fisPaisOrigem}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Código NCM">
+							<f:fields>
+								<Input value="{modelData>/fisNcm}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Categoria CFOP">
+							<f:fields>
+								<Input value="{modelData>/fisCfop}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Centro de Lucro">
+							<f:fields>
+								<Input value="{modelData>/fisCentroLucro}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Origem">
+							<f:fields>
+								<Input value="{modelData>/fisOrigem}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="Logistica">
+					<f:formElements>
+						<f:FormElement label="Unidade de Remessa">
+							<f:fields>
+								<Input value="{modelData>/fisUnRemessa}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Quantidade Minima">
+							<f:fields>
+								<Input value="{modelData>/fisQtdMinima}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Emite Receita">
+							<f:fields>
+								<Input value="{modelData>/fisReceita}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Código ONU">
+							<f:fields>
+								<Input value="{modelData>/fisOnu}" />
+							</f:fields>
+						</f:FormElement>
+						
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="Composição">
+					<f:formElements>
+						<f:FormElement label="Principio Ativo 1">
+							<f:fields>
+								<Input value="{modelData>/fisCompPa1}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Principio Ativo 2">
+							<f:fields>
+								<Input value="{modelData>/fisCompPa2}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Principio Ativo 3">
+							<f:fields>
+								<Input value="{modelData>/fisCompPa3}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Principio Ativo 4">
+							<f:fields>
+								<Input value="{modelData>/fisCompPa4}" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+
+</core:FragmentDefinition>

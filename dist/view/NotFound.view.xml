@@ -1,0 +1,18 @@
+<mvc:View
+	controllerName="nebula.controller.Inicio"
+	xmlns="sap.m"
+	xmlns:m="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<Page
+		title="{i18n>notFoundTitle}"
+		titleAlignment="Center"
+		id="page">
+		<HBox
+			height="100%"
+			alignItems="Center">
+					</HBox>
+	</Page>
+
+</mvc:View>
+

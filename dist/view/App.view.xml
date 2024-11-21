@@ -1,0 +1,9 @@
+<mvc:View
+	controllerName="nebula.controller.App"
+	xmlns="sap.m"
+	xmlns:tnt="sap.tnt"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<App id="app" busy="{appView>/busy}" busyIndicatorDelay="{appView>/delay}"/>
+
+</mvc:View>
