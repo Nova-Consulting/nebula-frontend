@@ -17,7 +17,7 @@
         },
         "dataSources": {
             "mainService": {
-                "uri": "http://localhost:4004/odata/v2/nebula/",
+                "uri": "http://20.64.235.73:4004/odata/v2/nebula/",
                 "type": "OData",
                 "settings": {
                     "annotations": [],
