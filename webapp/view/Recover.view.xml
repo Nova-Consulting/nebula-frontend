@@ -1,0 +1,58 @@
+<mvc:View
+	controllerName="nebula.controller.Recover"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards"
+	xmlns:core="sap.ui.core">
+	<Page showHeader="false">
+		<FlexBox class="h90" alignItems="Start" justifyContent="Center">
+			<f:Card class="sapUiMediumMargin mt100 mb10" width="350px" >
+				<f:header>
+					<card:Header
+						class="text-center"
+						title="Esqueceu sua Senha?"/>
+				</f:header>
+				<f:content>
+					<VBox
+						width="100%"
+						class="sapUiSmallMargin "
+						justifyContent="SpaceBetween"
+						id="vbox6"
+						>
+						<VBox class="sapUiSmallMarginBottom w100" alignItems="Center" id="vbox7">
+                			<Text text="Insira seu e-mail, ou ID de usuário e nós lhe enviaremos uma nova senha. O e-mail pode levar alguns minutos para chegar à sua caixa de entrada." />
+						</VBox>
+						<VBox class="sapUiSmallMarginBottom " id="vbox8">
+							<Label text="E-mail:" class="labelLogin" id="labelEmail" labelFor="inputUsername" />
+							<Input 
+								id="inputEmail" 
+								valueStateText="Nome de usuário inválido."
+								placeholder="Insira seu e-mail" 
+								class="sapUiSmallMarginBottom" />
+						</VBox>
+						<VBox class="sapUiSmallMarginBottom w100" alignItems="Center" id="vbox9">
+							<Button class="w100 mb10" text="Enviar" type="Emphasized" press="onPress" ariaLabelledBy="editButtonLabel"/>
+							<Link text="Voltar" class="linkPassword" press="onBackPress"/>
+						</VBox>
+					</VBox>
+				</f:content>
+			</f:Card>
+		</FlexBox>
+		 <Toolbar class="customFooterToolbar">
+            <HBox alignItems="Center" justifyContent="Center" id="hbox6">
+                <Text text="Desenvolvido por:" />
+                <Link text="Nova Consulting" href="https://www.sap.com" target="_blank" />
+            </HBox>
+            <HBox alignItems="Center" justifyContent="Center" id="hbox7">
+                <Link text="Politicas de Privacidade" href="#" />
+                <Text text=" | " />
+                <Link text="Legal" href="#" />
+                <Text text=" | " />
+                <Link text="Cookies" href="#" />
+            </HBox>
+        </Toolbar>
+	</Page>
+
+</mvc:View>
+

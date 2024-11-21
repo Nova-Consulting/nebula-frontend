@@ -1,0 +1,129 @@
+<core:FragmentDefinition
+xmlns:m="sap.m"
+xmlns="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mdc="sap.ui.mdc"
+	xmlns:mdct="sap.ui.mdc.table"
+	xmlns:core="sap.ui.core">
+	
+	<m:VBox fitContainer="true">
+		<f:SimpleForm
+				editable="false"
+				layout="ColumnLayout"
+				title="Dados Gerais"
+				singleContainerFullSize="false" >
+				<f:content>
+					<m:Label text="Código Nebula" />
+					<m:Text text="{modelData>/ID}" />
+
+					<m:Label text="Descrição" />
+					<m:Text text="{modelData>/descricao}" />
+
+					<m:Label text="Descrição Longa" />
+					<m:Text text="{modelData>/descricaoLong}" />
+
+					<m:Label text="Tipo de Material" />
+					<m:Text text="{modelData>/tipoMaterial}" />
+
+					<m:Label text="Grupo" />
+					<m:Text  text="{modelData>/grupo}" />
+
+					<m:Label text="SubGrupo" />
+					<m:Text text="{modelData>/subGrupo}" />
+
+					<m:Label text="Hierarquia" />
+					<m:Text text="{modelData>/hierarquia}" />
+
+					<m:Label text="Unidade de Medida" />
+					<m:Text text="{modelData>/unidadeMedida}" />
+
+					<m:Label text="Subfamilia" />
+					<m:Text text="{modelData>/subFamilia}" />
+
+					<m:Label text="Fabricante" />
+					<m:Text text="{modelData>/fabricante}" />
+
+					<m:Label text="Peso Bruto" />
+					<m:Text text="{modelData>/pesoBruto}" />
+
+					<m:Label text="Peso Liquido" />
+					<m:Text  text="{modelData>/pesoLiquido}" />
+
+					<m:Label text="Código Mapa" />
+					<m:Text  text="{modelData>/codMapa}" />
+
+					<m:Label text="Código EAN" />
+					<m:Text text="{modelData>/codigoEan}" />
+
+					<m:Label text="Categoria EAN" />
+					<m:Text text="{modelData>/categoriaEan}" />
+
+					<m:Label text="Código Legado" />
+					<m:Text text="{modelData>/codigoLegado}" />
+
+					<m:Label text="Setor de Atividade" />
+					<m:Text  text="{modelData>/setorAtividade}" />
+
+				</f:content>
+		</f:SimpleForm>
+
+		<f:SimpleForm
+				editable="false"
+				layout="ColumnLayout"
+				title="Dados Fiscais"
+				singleContainerFullSize="false" >
+				<f:content>
+					<m:Label text="País Origem" />
+					<m:Text text="{modelData>/fisPaisOrigem}" />
+
+					<m:Label text="Código NCM" />
+					<m:Text text="{modelData>/fisNcm}" />
+
+					<m:Label text="Categoria CFOP" />
+					<m:Text text="{modelData>/fisCfop}" />
+
+					<m:Label text="Centro de Lucro" />
+					<m:Text text="{modelData>/fisCentroLucro}" />
+
+					<m:Label text="Origem" />
+					<m:Text text="{modelData>/fisOrigem}" />
+
+					<m:Label text="Unidade de Remessa" />
+					<m:Text text="{modelData>/fisUnRemessa}" />
+
+					<m:Label text="Quantidade Minima" />
+					<m:Text text="{modelData>/fisQtdMinima}" />
+
+					<m:Label text="Emite Receita" />
+					<m:Text text="{modelData>/fisReceita}" />
+
+					<m:Label text="Código ONU" />
+					<m:Text text="{modelData>/fisOnu}" />
+
+
+				</f:content>
+		</f:SimpleForm>
+
+		<f:SimpleForm
+				editable="false"
+				layout="ColumnLayout"
+				title="Composição"
+				singleContainerFullSize="false" >
+				<f:content>
+					<m:Label text="Principio Ativo 1" />
+					<m:Text text="{modelData>/fisCompPa1}" />
+
+					<m:Label text="Principio Ativo 2" />
+					<m:Text text="{modelData>/fisCompPa2}" />
+
+					<m:Label text="Principio Ativo 3" />
+					<m:Text text="{modelData>/fisCompPa3}" />
+					
+					<m:Label text="Principio Ativo 4" />
+					<m:Text text="{modelData>/fisCompPa4}" />
+				</f:content>
+		</f:SimpleForm>
+	</m:VBox>
+		
+</core:FragmentDefinition>

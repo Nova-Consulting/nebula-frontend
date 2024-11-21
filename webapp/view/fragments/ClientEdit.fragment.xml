@@ -1,0 +1,233 @@
+<core:FragmentDefinition
+xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+   <VBox class="sapUiSmallMargin">
+		<f:Form
+			editable="true">
+			<f:title>
+				<core:Title text="Cliente" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer title="Detalhes do Cliente">
+					<f:formElements>
+						<f:FormElement label="Código Nebula">
+							<f:fields>
+								<Input value="{modelData>/logradouro}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Nome">
+							<f:fields>
+								<Input value="{modelData>/nomeCompleto}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="CPF/CNPJ">
+							<f:fields>
+								<Input value="{modelData>/cpfCnpj}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="IE / Inscrição Estadual">
+							<f:fields>
+								<Input value="{modelData>/inscricaoEstadual}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="IM / Inscrição Municipal">
+							<f:fields>
+								<Input value="{modelData>/inscricaoMunicipal}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="E-mail">
+							<f:fields>
+								<Input value="{modelData>/email}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Data Nascimento">
+							<f:fields>
+								<Input value="{modelData>/dataNascimento}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Gênero">
+							<f:fields>
+								<Input value="{modelData>/genero}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Nacionalidade">
+							<f:fields>
+								<Input value="{modelData>/nacionalidade}" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title=" ">
+					<f:formElements>
+					<f:FormElement label="Naturalidade">
+							<f:fields>
+								<Input value="{modelData>/naturalidade}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="UF">
+							<f:fields>
+								<Input value="{modelData>/uf}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Estado Civil">
+							<f:fields>
+								<Input value="{modelData>/estadoCivil}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Profissão">
+							<f:fields>
+								<Input value="{modelData>/profissao}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Nome da Mãe">
+							<f:fields>
+								<Input value="{modelData>/nomeMae}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Nome do Pai">
+							<f:fields>
+								<Input value="{modelData>/nomePai}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="RG - Número do Documento">
+							<f:fields>
+								<Input value="{modelData>/rgNumero}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="RG - Orgão Emissor">
+							<f:fields>
+								<Input value="{modelData>/rgEmissor}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="RG - Data de Emissão">
+							<f:fields>
+								<Input value="{modelData>/rgEmissao}" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+			<f:formContainers>
+				<f:FormContainer title="Endereço">
+					<f:formElements>
+					<f:FormElement label="Rua/Logradouro">
+					<f:fields>
+						<Input value="{modelData>/logradouro}" />
+					</f:fields>
+				</f:FormElement>
+				<f:FormElement label="Complemento">
+					<f:fields>
+						<Input value="{modelData>/complemento}" />
+					</f:fields>
+				</f:FormElement>
+				<f:FormElement label="Número">
+					<f:fields>
+						<Input value="{modelData>/numero}" />
+					</f:fields>
+				</f:FormElement>
+				<f:FormElement label="CEP">
+					<f:fields>
+						<Input value="{modelData>/cep}" />
+					</f:fields>
+				</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title=" ">
+					<f:formElements>
+					 <f:FormElement label="Bairro">
+						<f:fields>
+							<Input value="{modelData>/bairro}" />
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="Município">
+						<f:fields>
+							<Input value="{modelData>/municipio}" />
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="Estado">
+						<f:fields>
+							<Input value="{modelData>/estado}" />
+						</f:fields>
+					</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+			<f:formContainers>
+				<f:FormContainer title="Dados Fiscais">
+					<f:formElements>
+					<f:FormElement label="Tipo de Contribuinte ICMS">
+						<f:fields>
+							<Input value="{modelData>/tipoContribIcms}" />
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="Inscrição Estadual">
+						<f:fields>
+							<Input value="{modelData>/inscricaoEstadual}" />
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="Inscrição Municipal">
+						<f:fields>
+							<Input value="{modelData>/inscricaoMunicipal}" />
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="Código Município - IBGE">
+						<f:fields>
+							<Input value="{modelData>/codMuncipioIbge}" />
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="Classificação Fiscal">
+						<f:fields>
+							<Input value="{modelData>/classificacaoFiscal}" />
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="Grupo de Contas">
+						<f:fields>
+							<Input value="{modelData>/grupoContas}" />
+						</f:fields>
+					</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title=" ">
+					<f:formElements>
+					 <f:FormElement label="Código SUFRAMA">
+						<f:fields>
+							<Input value="{modelData>/codSuframa}" />
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="CNAE Principal">
+						<f:fields>
+							<Input value="{modelData>/cnaePrincipal}" />
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="Natureza Jurídica">
+						<f:fields>
+							<Input value="{modelData>/naturezaJuridica}" />
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="Tipo de Setor Industrial">
+						<f:fields>
+							<Input value="{modelData>/tipoSetorIndustrial}" />
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="Tipo de Declaração de Imposto">
+						<f:fields>
+							<Input value="{modelData>/tipoDeclaracaoImposto}" />
+						</f:fields>
+					</f:FormElement>
+					<f:FormElement label="Porte Empresa">
+						<f:fields>
+							<Input value="{modelData>/porteEmpresa}" />
+						</f:fields>
+					</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		
+	</VBox>
+</core:FragmentDefinition>

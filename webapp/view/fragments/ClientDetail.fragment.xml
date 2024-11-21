@@ -1,0 +1,151 @@
+<core:FragmentDefinition
+xmlns:m="sap.m"
+xmlns="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mdc="sap.ui.mdc"
+	xmlns:mdct="sap.ui.mdc.table"
+	xmlns:core="sap.ui.core">
+
+	<m:VBox fitContainer="true">
+	<f:SimpleForm 
+				editable="false"
+				layout="ColumnLayout"
+				title="Cadastro"
+				singleContainerFullSize="false" >
+				<f:content>
+					<m:Label text="Código Nebula" />
+					<m:Text text="{modelData>/logradouro}" />
+
+					<m:Label text="Nome" />
+					<m:Text text="{modelData>/nomeCompleto}" />
+
+					<m:Label text="CPF/CNPJ" />
+					<m:Text text="{modelData>/cpfCnpj}" />
+
+					<m:Label text="IE / Inscrição Estadual" />
+					<m:Text text="{modelData>/inscricaoEstadual}" />
+
+					<m:Label text="IM / Inscrição Municipal" />
+					<m:Text text="{modelData>/inscricaoMunicipal}" />
+
+					<m:Label text="E-mail" />
+					<m:Text text="{modelData>/email}" />
+
+					<m:Label text="Data Nascimento" />
+					<m:Text text="{modelData>/dataNascimento}" />
+
+					<m:Label text="Genêro" />
+					<m:Text text="{modelData>/genero}" />
+
+					<m:Label text="Nacionalidade" />
+					<m:Text text="{modelData>/nacionalidade}" />
+
+					<m:Label text="Naturalidade" />
+					<m:Text text="{modelData>/naturalidade}" />
+
+					<m:Label text="UF" />
+					<m:Text text="{modelData>/uf}" />
+
+					<m:Label text="Estado Civil" />
+					<m:Text text="{modelData>/estadoCivil}" />
+
+					<m:Label text="Profissão" />
+					<m:Text text="{modelData>/profissao}" />
+
+					<m:Label text="Nome da Mãe" />
+					<m:Text text="{modelData>/nomeMae}" />
+
+					<m:Label text="Nome do Pai" />
+					<m:Text text="{modelData>/nomePai}" />
+
+					<m:Label text="RG- Número do Documento" />
+					<m:Text text="{modelData>/rgNumero}" />
+
+					<m:Label text="RG - Orgão Emissor" />
+					<m:Text text="{modelData>/rgEmissor}" />
+
+					<m:Label text="RG - Data de Emissão" />
+					<m:Text text="{modelData>/rgEmissao}" />
+
+				</f:content>
+		</f:SimpleForm>
+
+		<f:SimpleForm 
+				editable="false"
+				layout="ColumnLayout"
+				title="Endereço"
+				singleContainerFullSize="false" >
+				<f:content>
+					<m:Label text="Rua/Logradouro" />
+					<m:Text text="{modelData>/logradouro}" />
+
+					<m:Label text="Complemento" />
+					<m:Text text="{modelData>/complemento}" />
+
+					<m:Label text="Número" />
+					<m:Text text="{modelData>/numero}" />
+
+					<m:Label text="CEP" />
+					<m:Text text="{modelData>/cep}" />
+
+					<m:Label text="Bairro" />
+					<m:Text text="{modelData>/bairro}" />
+
+					<m:Label text="Municipio" />
+					<m:Text text="{modelData>/municipio}" />
+
+					<m:Label text="Estado" />
+					<m:Text text="{modelData>/estado}" />
+
+				</f:content>
+		</f:SimpleForm>
+
+		<f:SimpleForm 
+				editable="false"
+				layout="ColumnLayout"
+				title="Dados Fiscais"
+				singleContainerFullSize="false" >
+				<f:content>
+					<m:Label text="Tipo de Contribuinte ICMS" />
+					<m:Text text="{modelData>/tipoContribIcms}" />
+
+					<m:Label text="Inscrição Estadual" />
+					<m:Text text="{modelData>/inscricaoEstadual}" />
+
+					<m:Label text="Inscrição Municipal" />
+					<m:Text text="{modelData>/inscricaoMunicipal}" />
+
+					<m:Label text="Código Municipio - IBGE" />
+					<m:Text text="{modelData>/codMuncipioIbge}" />
+
+					<m:Label text="Classificação Fiscal" />
+					<m:Text text="{modelData>/classificacaoFiscal}" />
+
+					<m:Label text="Grupo de Contas" />
+					<m:Text text="{modelData>/grupoContas}" />
+
+					<m:Label text="Código SUFRAMA" />
+					<m:Text text="{modelData>/codSuframa}" />
+
+					<m:Label text="CNAE Principal" />
+					<m:Text text="{modelData>/cnaePrincipal}" />
+
+					<m:Label text="Natureza Juridica" />
+					<m:Text text="{modelData>/naturezaJuridica}" />
+
+					<m:Label text="Tipo de Setor Industrial" />
+					<m:Text text="{modelData>/tipoSetorIndustrial}" />
+
+					<m:Label text="Tipo de Declaração de Imposto" />
+					<m:Text text="{modelData>/tipoDeclaracaoImposto}" />
+
+					<m:Label text="Porte Empresa" />
+					<m:Text text="{modelData>/porteEmpresa}" />
+
+				</f:content>
+		</f:SimpleForm>
+
+	</m:VBox>
+		
+</core:FragmentDefinition>

@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="Nebula" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.Links" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Collection>
+                    <Record>
+                        <PropertyValue Property="rel" String="author"/>
+                        <PropertyValue Property="href" String="https://cap.cloud.sap"/>
+                    </Record>
+                </Collection>
+            </Annotation>
+            <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Users" EntityType="Nebula.Users"/>
+                <EntitySet Name="Groups" EntityType="Nebula.Groups"/>
+                <EntitySet Name="GroupRoles" EntityType="Nebula.GroupRoles"/>
+                <EntitySet Name="UsersGroups" EntityType="Nebula.UsersGroups"/>
+                <EntitySet Name="Products" EntityType="Nebula.Products"/>
+                <EntitySet Name="Tenants" EntityType="Nebula.Tenants"/>
+                <EntitySet Name="UserTenant" EntityType="Nebula.UserTenant"/>
+                <EntitySet Name="BusinessPartners" EntityType="Nebula.BusinessPartners"/>
+                <EntitySet Name="BusinessPartnerPropriedade" EntityType="Nebula.BusinessPartnerPropriedade"/>
+                <EntitySet Name="BusinessPartnerContato" EntityType="Nebula.BusinessPartnerContato"/>
+                <EntitySet Name="BusinessPartnerEndereco" EntityType="Nebula.BusinessPartnerEndereco"/>
+                <EntitySet Name="BusinessPartnerCnae" EntityType="Nebula.BusinessPartnerCnae"/>
+                <EntitySet Name="BusinessPartnerVinculo" EntityType="Nebula.BusinessPartnerVinculo"/>
+                <EntitySet Name="BusinessPartnerAnexos" EntityType="Nebula.BusinessPartnerAnexos"/>
+                <AssociationSet Name="Users_leadership" Association="Nebula.Users_leadership">
+                    <End Role="Users" EntitySet="Users"/>
+                    <End Role="Users1" EntitySet="Users"/>
+                </AssociationSet>
+                <AssociationSet Name="Groups_groupsUsers" Association="Nebula.Groups_groupsUsers">
+                    <End Role="Groups" EntitySet="Groups"/>
+                    <End Role="GroupRoles" EntitySet="GroupRoles"/>
+                </AssociationSet>
+                <AssociationSet Name="GroupRoles_group" Association="Nebula.GroupRoles_group">
+                    <End Role="GroupRoles" EntitySet="GroupRoles"/>
+                    <End Role="Groups" EntitySet="Groups"/>
+                </AssociationSet>
+                <AssociationSet Name="UsersGroups_group" Association="Nebula.UsersGroups_group">
+                    <End Role="UsersGroups" EntitySet="UsersGroups"/>
+                    <End Role="Groups" EntitySet="Groups"/>
+                </AssociationSet>
+                <AssociationSet Name="UsersGroups_user" Association="Nebula.UsersGroups_user">
+                    <End Role="UsersGroups" EntitySet="UsersGroups"/>
+                    <End Role="Users" EntitySet="Users"/>
+                </AssociationSet>
+                <AssociationSet Name="UserTenant_tenant" Association="Nebula.UserTenant_tenant">
+                    <End Role="UserTenant" EntitySet="UserTenant"/>
+                    <End Role="Tenants" EntitySet="Tenants"/>
+                </AssociationSet>
+                <AssociationSet Name="BusinessPartners_propriedades" Association="Nebula.BusinessPartners_propriedades">
+                    <End Role="BusinessPartners" EntitySet="BusinessPartners"/>
+                    <End Role="BusinessPartnerPropriedade" EntitySet="BusinessPartnerPropriedade"/>
+                </AssociationSet>
+                <AssociationSet Name="BusinessPartnerContato_businessPartner" Association="Nebula.BusinessPartnerContato_businessPartner">
+                    <End Role="BusinessPartnerContato" EntitySet="BusinessPartnerContato"/>
+                    <End Role="BusinessPartners" EntitySet="BusinessPartners"/>
+                </AssociationSet>
+                <AssociationSet Name="BusinessPartnerEndereco_businessPartner" Association="Nebula.BusinessPartnerEndereco_businessPartner">
+                    <End Role="BusinessPartnerEndereco" EntitySet="BusinessPartnerEndereco"/>
+                    <End Role="BusinessPartners" EntitySet="BusinessPartners"/>
+                </AssociationSet>
+                <AssociationSet Name="BusinessPartnerCnae_businessPartner" Association="Nebula.BusinessPartnerCnae_businessPartner">
+                    <End Role="BusinessPartnerCnae" EntitySet="BusinessPartnerCnae"/>
+                    <End Role="BusinessPartners" EntitySet="BusinessPartners"/>
+                </AssociationSet>
+                <AssociationSet Name="BusinessPartnerVinculo_businessPartners" Association="Nebula.BusinessPartnerVinculo_businessPartners">
+                    <End Role="BusinessPartnerVinculo" EntitySet="BusinessPartnerVinculo"/>
+                    <End Role="BusinessPartners" EntitySet="BusinessPartners"/>
+                </AssociationSet>
+                <AssociationSet Name="BusinessPartnerAnexos_businessPartner" Association="Nebula.BusinessPartnerAnexos_businessPartner">
+                    <End Role="BusinessPartnerAnexos" EntitySet="BusinessPartnerAnexos"/>
+                    <End Role="BusinessPartners" EntitySet="BusinessPartners"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="Users">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="name" Type="Edm.String" MaxLength="100"/>
+                <Property Name="username" Type="Edm.String" MaxLength="20"/>
+                <Property Name="password" Type="Edm.String"/>
+                <Property Name="email" Type="Edm.String" MaxLength="50"/>
+                <Property Name="avatar" Type="Edm.Binary"/>
+                <Property Name="position" Type="Edm.String"/>
+                <NavigationProperty Name="leadership" Relationship="Nebula.Users_leadership" FromRole="Users" ToRole="Users1"/>
+                <Property Name="leadership_ID" Type="Edm.Guid"/>
+                <NavigationProperty Name="userGroups" Relationship="Nebula.UsersGroups_user" FromRole="Users" ToRole="UsersGroups"/>
+            </EntityType>
+            <EntityType Name="Groups">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="name" Type="Edm.String" MaxLength="100"/>
+                <Property Name="description" Type="Edm.String" MaxLength="100"/>
+                <NavigationProperty Name="groupsUsers" Relationship="Nebula.Groups_groupsUsers" FromRole="Groups" ToRole="GroupRoles"/>
+                <Property Name="groupsUsers_ID" Type="Edm.Guid"/>
+            </EntityType>
+            <EntityType Name="GroupRoles">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <NavigationProperty Name="group" Relationship="Nebula.GroupRoles_group" FromRole="GroupRoles" ToRole="Groups"/>
+                <Property Name="group_ID" Type="Edm.Guid"/>
+                <Property Name="entity" Type="Edm.String"/>
+                <Property Name="role" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="UsersGroups">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                    <PropertyRef Name="group_ID"/>
+                    <PropertyRef Name="user_ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <NavigationProperty Name="group" Relationship="Nebula.UsersGroups_group" FromRole="UsersGroups" ToRole="Groups"/>
+                <Property Name="group_ID" Type="Edm.Guid" Nullable="false"/>
+                <NavigationProperty Name="user" Relationship="Nebula.UsersGroups_user" FromRole="UsersGroups" ToRole="Users"/>
+                <Property Name="user_ID" Type="Edm.Guid" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="Products">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="name" Type="Edm.String" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="Tenants">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="name" Type="Edm.String" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="UserTenant">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="name" Type="Edm.String" MaxLength="100"/>
+                <Property Name="username" Type="Edm.String" MaxLength="20"/>
+                <Property Name="password" Type="Edm.String"/>
+                <Property Name="email" Type="Edm.String" MaxLength="50"/>
+                <Property Name="avatar" Type="Edm.Binary"/>
+                <NavigationProperty Name="tenant" Relationship="Nebula.UserTenant_tenant" FromRole="UserTenant" ToRole="Tenants"/>
+                <Property Name="tenant_ID" Type="Edm.Guid"/>
+            </EntityType>
+            <EntityType Name="BusinessPartners">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="razaoSocial" Type="Edm.String" MaxLength="100"/>
+                <Property Name="codigoBpSap" Type="Edm.String" MaxLength="50"/>
+                <Property Name="numeroInscricao" Type="Edm.String" MaxLength="50"/>
+                <Property Name="identificacao" Type="Edm.String" MaxLength="50"/>
+                <Property Name="email" Type="Edm.String" MaxLength="100"/>
+                <Property Name="statusNebula" Type="Edm.String" MaxLength="20"/>
+                <Property Name="tipoCadastro" Type="Edm.String" MaxLength="20"/>
+                <NavigationProperty Name="propriedades" Relationship="Nebula.BusinessPartners_propriedades" FromRole="BusinessPartners" ToRole="BusinessPartnerPropriedade"/>
+                <Property Name="propriedades_ID" Type="Edm.Guid"/>
+                <NavigationProperty Name="contatos" Relationship="Nebula.BusinessPartnerContato_businessPartner" FromRole="BusinessPartners" ToRole="BusinessPartnerContato"/>
+                <NavigationProperty Name="enderecos" Relationship="Nebula.BusinessPartnerEndereco_businessPartner" FromRole="BusinessPartners" ToRole="BusinessPartnerEndereco"/>
+                <NavigationProperty Name="cnaes" Relationship="Nebula.BusinessPartnerCnae_businessPartner" FromRole="BusinessPartners" ToRole="BusinessPartnerCnae"/>
+                <NavigationProperty Name="vinculos" Relationship="Nebula.BusinessPartnerVinculo_businessPartners" FromRole="BusinessPartners" ToRole="BusinessPartnerVinculo"/>
+                <NavigationProperty Name="anexos" Relationship="Nebula.BusinessPartnerAnexos_businessPartner" FromRole="BusinessPartners" ToRole="BusinessPartnerAnexos"/>
+            </EntityType>
+            <EntityType Name="BusinessPartnerPropriedade">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="nome" Type="Edm.String" MaxLength="100"/>
+                <Property Name="documento" Type="Edm.String" MaxLength="50"/>
+                <Property Name="inscricaoEstadual" Type="Edm.String" MaxLength="50"/>
+                <Property Name="inicioVigencia" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="finalVigencia" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="nomePropriedade" Type="Edm.String" MaxLength="100"/>
+                <Property Name="latitude" Type="Edm.Decimal" Precision="10" Scale="6"/>
+                <Property Name="longitude" Type="Edm.Decimal" Precision="10" Scale="6"/>
+                <Property Name="codigoPropriedade" Type="Edm.String" MaxLength="50"/>
+                <Property Name="incra" Type="Edm.String" MaxLength="50"/>
+                <Property Name="matricula" Type="Edm.String" MaxLength="50"/>
+                <Property Name="area" Type="Edm.Decimal" Precision="10" Scale="2"/>
+            </EntityType>
+            <EntityType Name="BusinessPartnerContato">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="nomeContato" Type="Edm.String" MaxLength="100"/>
+                <Property Name="logradouro" Type="Edm.String" MaxLength="100"/>
+                <Property Name="numero" Type="Edm.String" MaxLength="10"/>
+                <Property Name="cep" Type="Edm.String" MaxLength="10"/>
+                <Property Name="bairro" Type="Edm.String" MaxLength="50"/>
+                <Property Name="municipio" Type="Edm.String" MaxLength="50"/>
+                <Property Name="estado" Type="Edm.String" MaxLength="2"/>
+                <Property Name="complemento" Type="Edm.String" MaxLength="50"/>
+                <Property Name="email" Type="Edm.String" MaxLength="100"/>
+                <Property Name="telefone" Type="Edm.String" MaxLength="15"/>
+                <Property Name="telefone2" Type="Edm.String" MaxLength="15"/>
+                <Property Name="celular" Type="Edm.String" MaxLength="15"/>
+                <NavigationProperty Name="businessPartner" Relationship="Nebula.BusinessPartnerContato_businessPartner" FromRole="BusinessPartnerContato" ToRole="BusinessPartners"/>
+                <Property Name="businessPartner_ID" Type="Edm.Guid"/>
+            </EntityType>
+            <EntityType Name="BusinessPartnerEndereco">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="nomeEndereco" Type="Edm.String" MaxLength="100"/>
+                <Property Name="logradouro" Type="Edm.String" MaxLength="100"/>
+                <Property Name="numero" Type="Edm.String" MaxLength="10"/>
+                <Property Name="cep" Type="Edm.String" MaxLength="10"/>
+                <Property Name="bairro" Type="Edm.String" MaxLength="50"/>
+                <Property Name="municipio" Type="Edm.String" MaxLength="50"/>
+                <Property Name="estado" Type="Edm.String" MaxLength="2"/>
+                <Property Name="complemento" Type="Edm.String" MaxLength="50"/>
+                <NavigationProperty Name="businessPartner" Relationship="Nebula.BusinessPartnerEndereco_businessPartner" FromRole="BusinessPartnerEndereco" ToRole="BusinessPartners"/>
+                <Property Name="businessPartner_ID" Type="Edm.Guid"/>
+            </EntityType>
+            <EntityType Name="BusinessPartnerCnae">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="tipo" Type="Edm.String" MaxLength="50"/>
+                <Property Name="codigo" Type="Edm.String" MaxLength="50"/>
+                <NavigationProperty Name="businessPartner" Relationship="Nebula.BusinessPartnerCnae_businessPartner" FromRole="BusinessPartnerCnae" ToRole="BusinessPartners"/>
+                <Property Name="businessPartner_ID" Type="Edm.Guid"/>
+            </EntityType>
+            <EntityType Name="BusinessPartnerVinculo">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="businessPartner" Type="Edm.String" MaxLength="50"/>
+                <Property Name="businessPartnerVinculo" Type="Edm.String" MaxLength="50"/>
+                <Property Name="tipoVinculo" Type="Edm.String" MaxLength="50"/>
+                <NavigationProperty Name="businessPartners" Relationship="Nebula.BusinessPartnerVinculo_businessPartners" FromRole="BusinessPartnerVinculo" ToRole="BusinessPartners"/>
+                <Property Name="businessPartners_ID" Type="Edm.Guid"/>
+            </EntityType>
+            <EntityType Name="BusinessPartnerAnexos">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="urlDocumento" Type="Edm.String" MaxLength="200"/>
+                <Property Name="nomeDocumento" Type="Edm.String" MaxLength="100"/>
+                <Property Name="nomeOriginal" Type="Edm.String" MaxLength="100"/>
+                <NavigationProperty Name="businessPartner" Relationship="Nebula.BusinessPartnerAnexos_businessPartner" FromRole="BusinessPartnerAnexos" ToRole="BusinessPartners"/>
+                <Property Name="businessPartner_ID" Type="Edm.Guid"/>
+            </EntityType>
+            <Association Name="Users_leadership">
+                <End Role="Users" Type="Nebula.Users" Multiplicity="*"/>
+                <End Role="Users1" Type="Nebula.Users" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="Users1">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="Users">
+                        <PropertyRef Name="leadership_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Groups_groupsUsers">
+                <End Role="Groups" Type="Nebula.Groups" Multiplicity="1">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Role="GroupRoles" Type="Nebula.GroupRoles" Multiplicity="*"/>
+            </Association>
+            <Association Name="GroupRoles_group">
+                <End Role="GroupRoles" Type="Nebula.GroupRoles" Multiplicity="*"/>
+                <End Role="Groups" Type="Nebula.Groups" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="Groups">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="GroupRoles">
+                        <PropertyRef Name="group_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="UsersGroups_group">
+                <End Role="UsersGroups" Type="Nebula.UsersGroups" Multiplicity="*"/>
+                <End Role="Groups" Type="Nebula.Groups" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="Groups">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="UsersGroups">
+                        <PropertyRef Name="group_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="UsersGroups_user">
+                <End Role="UsersGroups" Type="Nebula.UsersGroups" Multiplicity="*"/>
+                <End Role="Users" Type="Nebula.Users" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="Users">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="UsersGroups">
+                        <PropertyRef Name="user_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="UserTenant_tenant">
+                <End Role="UserTenant" Type="Nebula.UserTenant" Multiplicity="*"/>
+                <End Role="Tenants" Type="Nebula.Tenants" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="Tenants">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="UserTenant">
+                        <PropertyRef Name="tenant_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="BusinessPartners_propriedades">
+                <End Role="BusinessPartners" Type="Nebula.BusinessPartners" Multiplicity="*"/>
+                <End Role="BusinessPartnerPropriedade" Type="Nebula.BusinessPartnerPropriedade" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="BusinessPartnerPropriedade">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="BusinessPartners">
+                        <PropertyRef Name="propriedades_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="BusinessPartnerContato_businessPartner">
+                <End Role="BusinessPartnerContato" Type="Nebula.BusinessPartnerContato" Multiplicity="*"/>
+                <End Role="BusinessPartners" Type="Nebula.BusinessPartners" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="BusinessPartners">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="BusinessPartnerContato">
+                        <PropertyRef Name="businessPartner_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="BusinessPartnerEndereco_businessPartner">
+                <End Role="BusinessPartnerEndereco" Type="Nebula.BusinessPartnerEndereco" Multiplicity="*"/>
+                <End Role="BusinessPartners" Type="Nebula.BusinessPartners" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="BusinessPartners">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="BusinessPartnerEndereco">
+                        <PropertyRef Name="businessPartner_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="BusinessPartnerCnae_businessPartner">
+                <End Role="BusinessPartnerCnae" Type="Nebula.BusinessPartnerCnae" Multiplicity="*"/>
+                <End Role="BusinessPartners" Type="Nebula.BusinessPartners" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="BusinessPartners">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="BusinessPartnerCnae">
+                        <PropertyRef Name="businessPartner_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="BusinessPartnerVinculo_businessPartners">
+                <End Role="BusinessPartnerVinculo" Type="Nebula.BusinessPartnerVinculo" Multiplicity="*"/>
+                <End Role="BusinessPartners" Type="Nebula.BusinessPartners" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="BusinessPartners">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="BusinessPartnerVinculo">
+                        <PropertyRef Name="businessPartners_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="BusinessPartnerAnexos_businessPartner">
+                <End Role="BusinessPartnerAnexos" Type="Nebula.BusinessPartnerAnexos" Multiplicity="*"/>
+                <End Role="BusinessPartners" Type="Nebula.BusinessPartners" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="BusinessPartners">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="BusinessPartnerAnexos">
+                        <PropertyRef Name="businessPartner_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Annotations Target="Nebula.Users/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.Users/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Nebula.Users/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Nebula.Users/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Nebula.Users/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Nebula.Users/name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.Users/username" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.Users/email" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.Users/position" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+                <Annotation Term="Validation.AllowedValues">
+                    <Collection>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="ADMIN"/>
+                            <PropertyValue Property="Value" String="Admin"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="CONSULTANT"/>
+                            <PropertyValue Property="Value" String="Consultant"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="HEAD"/>
+                            <PropertyValue Property="Value" String="Head"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="MANAGER"/>
+                            <PropertyValue Property="Value" String="Manager"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="LEADER"/>
+                            <PropertyValue Property="Value" String="Leader"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="ANALYST"/>
+                            <PropertyValue Property="Value" String="Analyst"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="SUPPORT"/>
+                            <PropertyValue Property="Value" String="Support"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="TRAINEE"/>
+                            <PropertyValue Property="Value" String="Trainee"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Nebula.Groups/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.Groups/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Nebula.Groups/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Nebula.Groups/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Nebula.Groups/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Nebula.GroupRoles/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.GroupRoles/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Nebula.GroupRoles/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Nebula.GroupRoles/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Nebula.GroupRoles/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Nebula.GroupRoles/entity" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Validation.AllowedValues">
+                    <Collection>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="USERS"/>
+                            <PropertyValue Property="Value" String="Users"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="GROUPS"/>
+                            <PropertyValue Property="Value" String="Groups"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="GROUPROLES"/>
+                            <PropertyValue Property="Value" String="Group Roles"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="PRODUCTS"/>
+                            <PropertyValue Property="Value" String="Products"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="TENTANTS"/>
+                            <PropertyValue Property="Value" String="Tenants"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="USERGROUPS"/>
+                            <PropertyValue Property="Value" String="User Groups"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="USERTENANTS"/>
+                            <PropertyValue Property="Value" String="User Tenants"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Nebula.GroupRoles/role" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Validation.AllowedValues">
+                    <Collection>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="READ"/>
+                            <PropertyValue Property="Value" String="Read"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="WRITE"/>
+                            <PropertyValue Property="Value" String="Write"/>
+                        </Record>
+                        <Record Type="Validation.AllowedValue">
+                            <Annotation Term="Core.SymbolicName" String="DELETE"/>
+                            <PropertyValue Property="Value" String="Delete"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Nebula.UsersGroups/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.UsersGroups/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Nebula.UsersGroups/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Nebula.UsersGroups/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Nebula.UsersGroups/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Nebula.UsersGroups/group_ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.UsersGroups/user_ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.Products/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.Products/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Nebula.Products/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Nebula.Products/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Nebula.Products/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Nebula.Products/name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.Tenants/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.Tenants/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Nebula.Tenants/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Nebula.Tenants/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Nebula.Tenants/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Nebula.Tenants/name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.UserTenant/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.UserTenant/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Nebula.UserTenant/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Nebula.UserTenant/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Nebula.UserTenant/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Nebula.UserTenant/name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.UserTenant/username" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.UserTenant/email" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.UserTenant/tenant_ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartners/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartners/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartners/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartners/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartners/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartners/razaoSocial" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartnerPropriedade/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartnerPropriedade/nome" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartnerContato/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartnerContato/nomeContato" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartnerEndereco/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartnerEndereco/nomeEndereco" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartnerCnae/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartnerCnae/tipo" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartnerVinculo/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartnerAnexos/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Nebula.BusinessPartnerAnexos/urlDocumento" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

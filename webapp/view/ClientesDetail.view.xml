@@ -1,0 +1,74 @@
+<mvc:View
+	controllerName="nebula.controller.ClientesDetail"
+	xmlns="sap.m"
+	xmlns:tnt="sap.tnt"
+	xmlns:layout="sap.ui.layout"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:smartField="sap.ui.comp.smartfield"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page title="Dados de Cliente">
+		<semantic:SemanticPage id="mySemanticPage" showFooter="true">
+
+			<!-- Title Heading-->
+			<semantic:titleHeading>
+				<Title text="{modelData>/nomeCompleto}" />
+			</semantic:titleHeading>
+
+			<!-- TitleExpanded content-->
+			<semantic:titleSnappedContent>
+				<Text text="CPF/CNPJ: {modelData>/cpfCnpj}"/>
+			</semantic:titleSnappedContent>
+
+			<semantic:titleExpandedContent>
+				<Text text="CPF/CNPJ: {modelData>/cpfCnpj}"/>
+			</semantic:titleExpandedContent>
+			
+			<semantic:headerContent>
+				<layout:HorizontalLayout allowWrapping="true">
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<ObjectAttribute title="Tipo de Cadastro" text="{modelData>/tipoCadastro}"/>
+						<ObjectAttribute title="Tipo de Parceiro" text="{modelData>/tipoParceiro}"/>
+						<ObjectAttribute title="Email" text="{modelData>/email}"/>
+					</layout:VerticalLayout>
+
+					<layout:VerticalLayout>
+						<ObjectAttribute title="Status"/>
+						<ObjectStatus text="ATIVO" state="{modelData/statusNebula}" />
+					</layout:VerticalLayout>
+				</layout:HorizontalLayout>
+			</semantic:headerContent>
+
+			<semantic:content>	
+				<Panel id="clientPage">
+				</Panel>
+			</semantic:content>
+
+			<semantic:titleMainAction>
+				<semantic:TitleMainAction text="Editar" id="edit" press="handleEditPress"  visible="true"/>
+			</semantic:titleMainAction>
+
+			<semantic:copyAction>
+				<semantic:CopyAction />
+			</semantic:copyAction>	
+
+			<semantic:deleteAction>
+				<semantic:DeleteAction />
+			</semantic:deleteAction>
+
+			<semantic:positiveAction>
+				<semantic:PositiveAction text="Salvar" id="save"  press="handleSavePress" visible="false"/>
+			</semantic:positiveAction>
+
+			<semantic:negativeAction>
+				<semantic:NegativeAction text="Cancelar" id="cancel"/>
+			</semantic:negativeAction>
+
+		</semantic:SemanticPage>
+	</Page>
+</mvc:View>

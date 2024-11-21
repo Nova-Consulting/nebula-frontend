@@ -1,0 +1,92 @@
+<mvc:View
+	controllerName="nebula.controller.MaterialDetail"
+	xmlns="sap.m"
+	xmlns:tnt="sap.tnt"
+	xmlns:layout="sap.ui.layout"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:smartField="sap.ui.comp.smartfield"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page title="Dados de Material">
+		<semantic:SemanticPage id="materialSemanticPage" showFooter="true">
+
+			<!-- Title Heading-->
+			<semantic:titleHeading>
+				<Title text="{modelData>/descricao}" />
+			</semantic:titleHeading>
+
+			<!-- TitleExpanded content-->
+			<semantic:titleSnappedContent>
+				<Text text="{modelData>/descricaoLong}"/>
+			</semantic:titleSnappedContent>
+
+			<!-- TitleSnapped content-->
+			<semantic:titleExpandedContent>
+				<Text text="{modelData>/descricaoLong}"/>
+			</semantic:titleExpandedContent>
+
+			<!-- Header Content -->
+			<semantic:headerContent>
+				<layout:HorizontalLayout allowWrapping="true">
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Avatar
+							src="https://sapui5.hana.ondemand.com/test-resources/sap/m/images/Speakers_avatar_01.jpg"
+							displaySize="XL"
+							displayShape="Square"
+							showBorder="true"
+							press="onPress"/>
+					</layout:VerticalLayout>
+
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<layout:HorizontalLayout class="sapUiMediumMarginEnd">
+							<ObjectAttribute title="Grupos" />
+							<ObjectAttribute  class="ml-10 textSpanDetail" text="{modelData>/grupo}"/>
+						</layout:HorizontalLayout>
+						<layout:HorizontalLayout class="sapUiMediumMarginEnd">
+							<ObjectAttribute title="Sub Grupo" />
+							<ObjectAttribute  class="ml-10 textSpanDetail" text="{modelData>/subGrupo}"/>
+						</layout:HorizontalLayout>
+						<layout:HorizontalLayout class="sapUiMediumMarginEnd">
+							<ObjectAttribute title="Unidade de Medida" />
+							<ObjectAttribute  class="ml-10 textSpanDetail" text="{modelData>/unidadeMedida}"/>
+						</layout:HorizontalLayout>
+					</layout:VerticalLayout>
+
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<ObjectAttribute title="Status"/>
+						<ObjectAttribute class="textSpanDetailGreen" text="{modelData>/status}" />
+					</layout:VerticalLayout>
+
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<ObjectAttribute title="Tipo de Material"/>
+						<ObjectAttribute class="textSpanDetailGreen" text="{modelData>/tipoMaterial}" />
+					</layout:VerticalLayout>
+
+					
+				</layout:HorizontalLayout>
+			</semantic:headerContent>
+
+			<semantic:content>	
+				<Panel id="materialPage">
+				</Panel>
+			</semantic:content>
+
+			<semantic:titleMainAction>
+				<semantic:TitleMainAction text="Editar" id="editMaterial" press="handleEditPress"  visible="true"/>
+			</semantic:titleMainAction>
+
+			<semantic:positiveAction>
+				<semantic:PositiveAction text="Salvar" id="saveMaterial"  press="handleSavePress" visible="false"/>
+			</semantic:positiveAction>
+
+		<semantic:footerCustomActions>			
+			<Button text="Voltar" press="_onBackPress"/>
+		</semantic:footerCustomActions>
+		</semantic:SemanticPage>
+	</Page>
+</mvc:View>

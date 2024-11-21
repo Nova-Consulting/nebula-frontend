@@ -1,0 +1,37 @@
+<mvc:View
+	controllerName="nebula.controller.Clientes"
+	xmlns="sap.m"
+	xmlns:tnt="sap.tnt"
+	xmlns:layout="sap.ui.layout"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page title="Gerênciar Clientes">
+		<VBox fitContainer="true">
+				<smartFilterBar:SmartFilterBar id="smartPropriedadesFilter" entitySet="BusinessPartners" persistencyKey="SmartFilter_Explored"  >
+
+				<smartFilterBar:layoutData>
+					<FlexItemData shrinkFactor="0"/>
+				</smartFilterBar:layoutData>
+			</smartFilterBar:SmartFilterBar>
+			<smartTable:SmartTable id="LinePropriedadesSmartTable" entitySet="BusinessPartners" smartFilterId="smartPropriedadesFilter" tableType="ResponsiveTable" initiallyVisibleFields="codigoNebula,nomeCompleto,cpfCnpj,tipoParceiro,statusNebula" useVariantManagement="true" useTablePersonalisation="true" header="Fornecedores" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" editTogglable="true" app:useSmartToggle="true">
+				<smartTable:layoutData>
+					<FlexItemData growFactor="1" baseSize="0%"/>
+				</smartTable:layoutData>
+				<Table>
+					<items>
+						<ColumnListItem type="Navigation" press="_onItemPress">
+							<cells></cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</smartTable:SmartTable>
+		</VBox>
+
+	</Page>
+
+</mvc:View>
