@@ -6,7 +6,7 @@ sap.ui.define(["./BaseController",
 	 'sap/m/MessageToast'
 	], function (BaseController, JSONModel, Filter, FilterOperator, Fragment, MessageToast ) {
 	"use strict";
-
+ 
 	return BaseController.extend("nebula.controller.MaterialDetail", {
 		onInit: function() {
 			this._navContainerDelegate = { onBeforeShow: this.onBeforeShow, onAfterShow: this.onAfterShow, onAfterHide: this.onAfterHide, onExit: this.onExit };
