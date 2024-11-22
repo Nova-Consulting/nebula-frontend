@@ -43,7 +43,7 @@ xmlns="sap.m"
 						</f:FormElement>
 						<f:FormElement label="SubGrupo">
 							<f:fields>
-								<Input value="{modelData>/SubGrupo}" />
+								<Input value="{modelData>/subGrupo}" />
 							</f:fields>
 						</f:FormElement>
 						<f:FormElement label="Hierarquia">

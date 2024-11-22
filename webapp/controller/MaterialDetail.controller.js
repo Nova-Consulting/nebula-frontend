@@ -12,6 +12,8 @@ sap.ui.define(["./BaseController",
 			this._navContainerDelegate = { onBeforeShow: this.onBeforeShow, onAfterShow: this.onAfterShow, onAfterHide: this.onAfterHide, onExit: this.onExit };
 			this.getView().addEventDelegate(this._navContainerDelegate, this);
 
+			this._oErrorHandler = this.getOwnerComponent().getErrorHandler();
+
 			this.getOwnerComponent().getRouter().getRoute("materialRouteDetail").attachPatternMatched(this._onRouteMatched, this);			
 			this.lazy(true)
 		},
@@ -100,6 +102,7 @@ sap.ui.define(["./BaseController",
 		},
 
 		handleSavePress : function () {
+			var that = this
 			var oModel = this.getView().getModel()
 			var oData = this.getView().getModel('modelData').getData()
 			this.lazy(true)
@@ -107,11 +110,11 @@ sap.ui.define(["./BaseController",
 			oModel.update('/Material('+oData.ID+')', oData,{
 				success: function(oData) {
 					MessageToast.show('O Material foi Atualizado');
-					this._toggleButtonsAndView(false);
+					that._toggleButtonsAndView(false);
 				}.bind(this),
 				error: function(oError){
-					MessageToast.show('Ocorreu um erro ao atualizar o material, tente novamente');
-					this._toggleButtonsAndView(false);
+					this._oErrorHandler.handleODataError(oError);
+					that._toggleButtonsAndView(false);
 				}
 			})
 			

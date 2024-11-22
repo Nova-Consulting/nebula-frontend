@@ -8,63 +8,22 @@
 	xmlns:tnt="sap.tnt"
 	height="100%">
 	<tnt:ToolPage id="toolPage">
-				<tnt:header>
-			<tnt:ToolHeader>
-				<Image height="1.5rem"
-					   class="sapUiSmallMarginBegin"
-					   src="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg" />
-				<Title level="H1" text="Nova Consulting" wrapping="false" id="productName">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="Disappear"/>
-					</layoutData>
-				</Title>
-				<Text text="Nébula" wrapping="false" id="secondTitle">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="Disappear"/>
-					</layoutData>
-				</Text>
-				<ToolbarSpacer />
-				<SearchField width="16rem" id="searchField">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="Low" group="1"/>
-					</layoutData>
-				</SearchField>
-				<ToolbarSpacer id="spacer">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="Low" group="1"/>
-					</layoutData>
-				</ToolbarSpacer>
-				<Button visible="false" icon="sap-icon://search" type="Transparent" id="searchButton" tooltip="Search"/>
-				<OverflowToolbarButton icon="sap-icon://source-code" type="Transparent" tooltip="Action 1" text="Action 1">
-					<layoutData>
-						<OverflowToolbarLayoutData group="2"/>
-					</layoutData>
-				</OverflowToolbarButton>
-				<OverflowToolbarButton icon="sap-icon://card" type="Transparent" tooltip="Action 2" text="Action 2">
-					<layoutData>
-						<OverflowToolbarLayoutData group="2"/>
-					</layoutData>
-				</OverflowToolbarButton>
-				<ToolbarSeparator>
-					<layoutData>
-						<OverflowToolbarLayoutData group="2"/>
-					</layoutData>
-				</ToolbarSeparator>
-				<OverflowToolbarButton icon="sap-icon://action-settings" type="Transparent" text="Settings"/>
-				<Button icon="sap-icon://bell" type="Transparent" tooltip="Notification">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="NeverOverflow"/>
-					</layoutData>
-				</Button>
-				<tnt:ToolHeaderUtilitySeparator/>
-				<ToolbarSpacer width="1.125rem"/>
-				<Avatar src="test-resources/sap/tnt/images/Woman_avatar_01.png" id="avatar" displaySize="XS" tooltip="Profile" press="onPress">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="NeverOverflow"/>
-					</layoutData>
-				</Avatar>
-			</tnt:ToolHeader>
-		</tnt:header>	
+	<tnt:header>
+			<f:ShellBar title="Nébula"
+				showMenuButton="true"
+				homeIcon="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg"
+				showNotifications="true"
+				menuButtonPressed="onMenuButtonPress"
+				notificationsNumber="2">
+				<f:profile>
+					<Avatar initials="BA"/>
+				</f:profile>
+				<f:searchManager>
+					<f:SearchManager/>
+				</f:searchManager>
+			</f:ShellBar>
+		</tnt:header>
+
 		<tnt:sideContent>
 			<SideNavigation xmlns="sap.tnt" xmlns:core="sap.ui.core" expanded="true" selectedKey="{
 					path: 'ui>/selectedRoute'
