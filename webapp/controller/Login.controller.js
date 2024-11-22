@@ -94,7 +94,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
 			var aData = jQuery.ajax({
 				type : "POST",
 				contentType : "application/json",
-				url : "http://20.64.235.73:4004/odata/v4/admin/login",
+				url : "http://20.64.235.73:4004/odata/v4/nebula/login",
 				dataType : "json",
 				data: JSON.stringify(oPayload),
 				async: true, 

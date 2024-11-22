@@ -76,7 +76,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageBox", 'sap/ui/model/j
 			var aData = jQuery.ajax({
 				type : "POST",
 				contentType : "application/json",
-				url : "http://20.64.235.73:4004/odata/v4/admin/recoverPassword",
+				url : "http://20.64.235.73:4004/odata/v4/nebula/recoverPassword",
 				dataType : "json",
 				data: JSON.stringify(oPayload),
 				async: true, 
