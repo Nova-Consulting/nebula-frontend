@@ -1,7 +1,7 @@
 sap.ui.define(["./BaseController", 'sap/ui/model/json/JSONModel'], function (BaseController, JSONModel ) {
 	"use strict";
 
-	return BaseController.extend("nebula.controller.Fornecedores", {
+	return BaseController.extend("nebula.controller.Cooperados", {
 		onInit: function() {
 			this._navContainerDelegate = { onBeforeShow: this.onBeforeShow, onAfterShow: this.onAfterShow, onAfterHide: this.onAfterHide };
 			this.getView().addEventDelegate(this._navContainerDelegate, this);

@@ -51,7 +51,7 @@ sap.ui.define(["./BaseController",
 
 			this._formFragments = {};
 
-			this._showFormFragment("cooperadosDetail");
+			this._showFormFragment("CooperadosDetail");
 		},
 
 		handleEditPress: function() {
