@@ -86,6 +86,12 @@ sap.ui.define(["./BaseController",
 			return pFormFragment;
 		},
 
+		_onBackPress: function() {
+			this.lazy(true)
+			var oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("clientesRoute");
+		},
+
 		handleSavePress : function () {
 			var oModel = this.getView().getModel()
 			var oData = this.getView().getModel('modelData').getData()
@@ -95,13 +101,16 @@ sap.ui.define(["./BaseController",
 				success: function(oData) {
 					MessageToast.show('O Cliente foi Atualizado');
 					this._toggleButtonsAndView(false);
+					this.lazy(false)
 				}.bind(this),
 				error: function(oError){
 					MessageToast.show('Ocorreu um erro ao atualizar o cliente, tente novamente');
 					this._toggleButtonsAndView(false);
+					this.lazy(false)
 				}
 			})
 
+			this.lazy(false)
 		},
 
 		_clearFragment: function () {

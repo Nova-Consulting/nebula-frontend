@@ -16,7 +16,7 @@ xmlns:m="sap.m"
 					<chart:bars>
 						<chart:InteractiveBarChartBar label="Cooperados" value="941.8"/>
 						<chart:InteractiveBarChartBar label="Propriedades" value="847.6"/>
-						<chart:InteractiveBarChartBar label="Clientes" value="754.6"/>
+						<chart:InteractiveBarChartBar label="Clientes" value="754 .6"/>
 					</chart:bars>
 				</chart:InteractiveBarChart>
 			</m:Panel>

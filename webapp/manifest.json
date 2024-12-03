@@ -169,6 +169,31 @@
 					"name": "materialRouteDetail",
 					"pattern": "material/{id}",
 					"target": "materialDetailTarget"
+				},
+                {
+					"name": "solicitacaoMateriaisRoute",
+					"pattern": "solicitacao/material",
+					"target": "materialSolTarget"
+				},
+                {
+					"name": "solicitacaoClientesRoute",
+					"pattern": "solicitacao/cliente",
+					"target": "clienteSolTarget"
+				},
+                {
+					"name": "solicitacaoFornecedoresRoute",
+					"pattern": "solicitacao/fornecedor",
+					"target": "fornecedorSolTarget"
+				},
+                {
+					"name": "solicitacaoCooperadosRoute",
+					"pattern": "solicitacao/cooperado",
+					"target": "cooperadoSolTarget"
+				},
+                {
+					"name": "solicitacaoPropriedadesRoute",
+					"pattern": "solicitacao/propriedade",
+					"target": "propriedadeSolTarget"
 				}
             ],
             "targets": {
@@ -257,6 +282,56 @@
                     "transition": "slide",
                     "level": 3
                 },
+                "materialSolTarget": {
+                    "id": "materialSol",
+					"path": "nebula.view",
+					"name": "SolicitacaoMaterial",
+					"parent": "mainTarget",
+					"controlId": "parentNavContainer",
+					"clearAggregation": true,
+					"transition": "slide",
+					"level": 3
+				},
+                "clienteSolTarget": {
+                    "id": "clienteSol",
+					"path": "nebula.view",
+					"name": "SolicitacaoCliente",
+					"parent": "mainTarget",
+					"controlId": "parentNavContainer",
+					"clearAggregation": true,
+					"transition": "slide",
+					"level": 3
+				},
+                "cooperadoSolTarget": {
+                    "id": "cooperadool",
+					"path": "nebula.view",
+					"name": "SolicitacaoCooperado",
+					"parent": "mainTarget",
+					"controlId": "parentNavContainer",
+					"clearAggregation": true,
+					"transition": "slide",
+					"level": 3
+				},
+                "fornecedorSolTarget": {
+                    "id": "fornecedorSol",
+					"path": "nebula.view",
+					"name": "SolicitacaoFornecedor",
+					"parent": "mainTarget",
+					"controlId": "parentNavContainer",
+					"clearAggregation": true,
+					"transition": "slide",
+					"level": 3
+				},
+                "propriedadeSolTarget": {
+                    "id": "propriedadeSol",
+					"path": "nebula.view",
+					"name": "SolicitacaoPropriedade",
+					"parent": "mainTarget",
+					"controlId": "parentNavContainer",
+					"clearAggregation": true,
+					"transition": "slide",
+					"level": 3
+				},
                 "materialTarget": {
                     "id": "material",
 					"path": "nebula.view",

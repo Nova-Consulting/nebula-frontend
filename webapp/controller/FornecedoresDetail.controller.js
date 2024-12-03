@@ -28,6 +28,11 @@ sap.ui.define(["./BaseController",
 			this.getOwnerComponent().setModel(oViewModel, "appView");
 		},
 
+		_onBackPress: function() {
+			this.lazy(true)
+			var oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("fornecedoresRoute");
+		},
 
 		_onRouteMatched: function (oEvent) {
 			var that = this
@@ -90,14 +95,18 @@ sap.ui.define(["./BaseController",
 
 			oModel.update('/BusinessPartners('+oData.ID+')', oData,{
 				success: function(oData) {
-					MessageToast.show('O Cliente foi Atualizado');
+					MessageToast.show('O Fornecedor foi Atualizado');
 					this._toggleButtonsAndView(false);
+					this.lazy(false)
 				}.bind(this),
 				error: function(oError){
-					MessageToast.show('Ocorreu um erro ao atualizar o cliente, tente novamente');
+					MessageToast.show('Ocorreu um erro ao atualizar o Fornecedor, tente novamente');
 					this._toggleButtonsAndView(false);
+					this.lazy(false)
 				}
 			})
+
+			this.lazy(false)
 		},
 
 		_clearFragment: function () {

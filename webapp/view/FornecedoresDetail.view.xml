@@ -58,7 +58,7 @@
 			</semantic:positiveAction>
 
 			<semantic:negativeAction>
-				<semantic:NegativeAction text="Cancelar" id="fornecedorescancel"/>
+				<semantic:NegativeAction text="Cancelar" press="_onBackPress" id="fornecedorescancel"/>
 			</semantic:negativeAction>
 
 		</semantic:SemanticPage>

@@ -83,6 +83,12 @@ sap.ui.define(["./BaseController",
 			return pFormFragment;
 		},
 
+		_onBackPress: function() {
+			this.lazy(true)
+			var oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("cooperadosRoute");
+		},
+
 		handleSavePress : function () {
 			var oModel = this.getView().getModel()
 			var oData = this.getView().getModel('modelData').getData()
